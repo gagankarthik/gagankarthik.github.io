@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="sphere" cx="35%" cy="28%" r="70%">
+      <stop offset="0%"  stop-color="#fff7d4"/>
+      <stop offset="35%" stop-color="#f5d35c"/>
+      <stop offset="80%" stop-color="#b88a1c"/>
+      <stop offset="100%" stop-color="#5a3e08"/>
+    </radialGradient>
+    <radialGradient id="rim" cx="50%" cy="50%" r="50%">
+      <stop offset="80%" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.45)"/>
+    </radialGradient>
+    <radialGradient id="hl" cx="32%" cy="22%" r="22%">
+      <stop offset="0%"  stop-color="rgba(255,255,255,0.9)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <linearGradient id="star" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"  stop-color="#1c1c20"/>
+      <stop offset="100%" stop-color="#0a0a0c"/>
+    </linearGradient>
+  </defs>
+  <!-- ambient drop -->
+  <ellipse cx="32" cy="58" rx="22" ry="3" fill="rgba(0,0,0,0.35)"/>
+  <!-- 3D sphere -->
+  <circle cx="32" cy="32" r="28" fill="url(#sphere)"/>
+  <circle cx="32" cy="32" r="28" fill="url(#rim)"/>
+  <!-- embossed star -->
+  <polygon points="32,18 35.5,28 46,28 37.5,34 41,44 32,38 23,44 26.5,34 18,28 28.5,28"
+           fill="url(#star)"/>
+  <!-- specular highlight -->
+  <circle cx="32" cy="32" r="28" fill="url(#hl)"/>
+</svg>

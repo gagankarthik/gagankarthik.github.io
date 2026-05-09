@@ -55,9 +55,9 @@
       ], prompt: false, after: 100 },
     { tokens: [
         { text: '  ' },
-        { text: '"visa"', cls: 'term-key' },
+        { text: '"availability"', cls: 'term-key' },
         { text: ': ' },
-        { text: '"STEM_OPT"', cls: 'term-val' },
+        { text: '"immediate"', cls: 'term-val' },
         { text: ',' },
       ], prompt: false, after: 100 },
     { tokens: [

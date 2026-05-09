@@ -15,7 +15,7 @@ Personal portfolio site. Static, multi-page, no build step.
 | **Focus** | HR-tech · workforce SaaS · vertical B2B |
 | **Stack** | Next.js · TypeScript · React · AWS Amplify · Supabase · PostgreSQL · Python |
 | **Education** | M.S. Computer Science (USA) |
-| **Status** | Open to work · STEM-OPT, US-based |
+| **Status** | Open to work · Based in the United States |
 | **Email** | mullapudi.gagankarthik@gmail.com |
 | **Phone** | +1 (470) 898-5946 |
 | **GitHub** | <https://github.com/gagankarthik> |
@@ -69,7 +69,7 @@ portfolio/
 | The 5 projects (titles, taglines, GitHub URLs) | `index.html`, `work.html`, `data/projects.json` |
 | About story / strengths / weaknesses / "Things I love" | `about.html` |
 | Email, phone, social links | `contact.html` (and footers in every `*.html`) |
-| Topbar status text | search `OPEN TO WORK · STEM OPT` across all `*.html` |
+| Topbar status text | search `OPEN TO WORK` across all `*.html` |
 | Colors, fonts, spacing | `assets/css/tokens.css` |
 | Type scale (per breakpoint) | `assets/css/responsive.css` + `pages/*.css` |
 | Replace portrait | `assets/img/about-portrait.png` |

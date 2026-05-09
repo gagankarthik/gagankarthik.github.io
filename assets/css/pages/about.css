@@ -155,12 +155,20 @@
 }
 .love-card:hover { border-color: var(--accent); transform: translateY(-4px); }
 .love-icon {
-  font-family: var(--serif);
-  font-size: 80px;
-  line-height: 1;
-  font-style: italic;
+  width: 60px;
+  height: 60px;
   color: var(--accent);
-  font-weight: 300;
+  display: inline-grid;
+  place-items: center;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  transition: transform 360ms var(--ease-back), background 280ms var(--ease), color 280ms var(--ease);
+}
+.love-card:hover .love-icon {
+  background: var(--accent);
+  color: var(--bg);
+  transform: rotate(-8deg) scale(1.06);
 }
 .love-name {
   font-family: var(--serif);

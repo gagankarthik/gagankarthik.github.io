@@ -90,6 +90,199 @@
   mix-blend-mode: overlay;
 }
 
+/* ============ HERO TRADING CARD (replaces terminal — visual, character-led) ============ */
+.hero-card {
+  position: relative;
+  background:
+    linear-gradient(160deg, var(--bg-2) 0%, var(--bg-3) 100%);
+  border: 1px solid var(--line-2);
+  border-radius: 18px;
+  padding: 22px 22px 24px;
+  display: grid;
+  gap: 14px;
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.55),
+    18px 18px 0 -8px var(--accent),
+    -10px -10px 0 -8px var(--accent-2);
+  transform: rotate(-1.2deg);
+  transition: transform 540ms var(--ease-back), box-shadow 540ms var(--ease);
+  overflow: hidden;
+}
+.hero-card:hover { transform: rotate(0deg) translateY(-4px); }
+
+/* ticker tape across top */
+.hero-card::before {
+  content: "★ AVAILABLE ★ FULL-STACK ★ AVAILABLE ★ FULL-STACK ★ AVAILABLE ★ FULL-STACK ★";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 22px;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  padding-left: 4px;
+  animation: tickerSlide 18s linear infinite;
+  overflow: hidden;
+}
+@keyframes tickerSlide { to { background-position: -300px 0; } }
+
+.hero-card-top {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 14px;  /* clear the ticker */
+}
+.hero-card-status {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent-3);
+}
+.hero-card-status .ping {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--accent-3);
+  animation: pulse 2s ease-in-out infinite;
+}
+.hero-card-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--ink-muted);
+}
+
+/* avatar */
+.hero-card-avatar-wrap {
+  position: relative;
+  width: 130px; height: 130px;
+  margin: 4px auto 6px;
+}
+.hero-card-avatar-wrap::before {
+  /* layered 3D-ish ring backdrop */
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 0deg,
+      var(--accent),
+      var(--accent-2),
+      var(--accent-violet),
+      var(--accent-blue),
+      var(--accent-3),
+      var(--accent));
+  filter: blur(8px);
+  opacity: 0.55;
+  z-index: 0;
+  animation: ringSpin 14s linear infinite;
+}
+@keyframes ringSpin { to { transform: rotate(360deg); } }
+.hero-card-avatar {
+  position: relative;
+  z-index: 1;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--ink);
+  display: block;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+}
+
+.hero-card-name {
+  font-family: var(--serif); font-size: 30px; font-weight: 400; letter-spacing: -0.02em;
+  text-align: center;
+  line-height: 1;
+}
+.hero-card-role {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-dim); text-align: center;
+}
+.hero-card-chips {
+  display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+  margin-top: 4px;
+}
+.hero-card-chips li {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  padding: 5px 10px;
+  background: var(--bg);
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+}
+.hero-card-chips li:nth-child(1) { color: var(--accent); border-color: var(--accent); }
+.hero-card-chips li:nth-child(2) { color: var(--accent-blue); border-color: var(--accent-blue); }
+.hero-card-chips li:nth-child(3) { color: var(--accent-2); border-color: var(--accent-2); }
+.hero-card-chips li:nth-child(4) { color: var(--accent-3); border-color: var(--accent-3); }
+
+.hero-card-foot {
+  margin-top: 6px;
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line-2);
+}
+.hero-card-foot .greet {
+  font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--ink-dim);
+}
+.hero-card-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--accent); color: var(--bg);
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: transform 320ms var(--ease-back);
+}
+.hero-card-cta:hover { transform: translateX(3px); }
+
+/* tilt cleanup so card animations chain nicely */
+.hero-card[data-tilt] { transform-origin: center; }
+
+@media (max-width: 768px) {
+  .hero-card { transform: rotate(0deg); padding: 20px; }
+  .hero-card-avatar-wrap { width: 110px; height: 110px; }
+  .hero-card-name { font-size: 26px; }
+}
+
+/* ============ ICON SYSTEM (replaces emoji) ============ */
+.ico {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.ico svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ico-sm svg { width: 18px; height: 18px; }
+.ico-md svg { width: 24px; height: 24px; }
+.ico-lg svg { width: 28px; height: 28px; }
+
+/* override emoji classes inside our existing components */
+.principle-icon svg {
+  width: 28px; height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: var(--accent);
+}
+.principle:hover .principle-icon svg { color: var(--bg); }
+.currently-item .ico {
+  width: 24px; height: 24px;
+  color: var(--accent);
+}
+.love-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* ============ HERO LIVE-PILL (small status floating at the top) ============ */
 .hero-pill {
   display: inline-flex;
