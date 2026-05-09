@@ -800,37 +800,36 @@ body.rainbow-mode .status-dot {
   100% { background: #f5d35c; }
 }
 
-/* a tiny ribbon hint at the top of viewport when rainbow is on */
-body.rainbow-mode::before {
-  content: "★ RAINBOW MODE — press ESC to exit";
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 28px;
-  z-index: 9000;
-  display: grid;
-  place-items: center;
+/* tiny rainbow badge inside topbar (replaces the old top-of-page ribbon
+   that was pushing the topbar down and creating a gap) */
+.rainbow-badge {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-size: 10px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--bg);
-  font-weight: 500;
+  font-weight: 600;
   background: linear-gradient(90deg, #f5d35c, #6dd58c, #4ea7d8, #b794f4, #ff7eb6, #e85d4d, #f5d35c);
   background-size: 300% 100%;
   animation: rainbowRibbon 6s linear infinite;
-  pointer-events: none;
+  margin-left: 8px;
 }
+body.rainbow-mode .rainbow-badge { display: inline-flex; }
 @keyframes rainbowRibbon {
   0%   { background-position: 0% 0%; }
   100% { background-position: 300% 0%; }
 }
-body.rainbow-mode .topbar { top: 28px; }
 
 @media (prefers-reduced-motion: reduce) {
   body.rainbow-mode { animation: none; }
-  body.rainbow-mode::before { animation: none; }
   body.rainbow-mode .hero-mesh .blob { animation: none; filter: blur(72px); }
   body.rainbow-mode .status-dot { animation: pulse 2s ease-in-out infinite !important; }
+  .rainbow-badge { animation: none; background: var(--accent); }
 }
 
 /* ============ HIGHLIGHTED-WORD MARKER (in copy) ============ */

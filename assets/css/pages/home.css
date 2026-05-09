@@ -7,9 +7,9 @@
   min-height: auto;
   display: flex;
   align-items: center;
-  padding: 96px 0 64px;
+  padding: 84px 0 56px;     /* tighter — content sits closer to topbar */
   position: relative;
-  isolation: isolate; /* keep mesh blobs scoped */
+  overflow: hidden;          /* contains the mesh blobs without isolation:isolate */
 }
 .hero-grid {
   display: grid;
@@ -497,8 +497,8 @@
 
 /* ============ HOME RESPONSIVE ============ */
 @media (max-width: 1024px) {
-  .hero { padding: 130px 0 80px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+  .hero { padding: 96px 0 64px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
   .pattern-grid { grid-template-columns: 1fr; gap: 48px; }
   .hero h1 { font-size: clamp(52px, 9vw, 84px); }
   .terminal { font-size: 12px; }
