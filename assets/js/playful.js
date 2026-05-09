@@ -102,13 +102,24 @@
     });
   });
 
-  /* ============ STATUS DOT EASTER EGG (5 clicks → rainbow + hint) ============ */
+  /* ============ RAINBOW MODE EASTER EGG (5 dot-clicks → full-site cycle) ============ */
   const statusDots = document.querySelectorAll('.topbar .status-dot, .topbar-status');
   let dotClicks = 0;
   let dotTimer = null;
-  function statusEgg() {
-    document.body.classList.toggle('status-rainbow');
-    showHint('★ rainbow mode unlocked', '<kbd>Esc</kbd> to switch off');
+  function rainbowToggle() {
+    const wasOn = document.body.classList.contains('rainbow-mode');
+    document.body.classList.toggle('rainbow-mode');
+    if (!wasOn) {
+      showHint('★ rainbow mode unlocked', 'press <kbd>Esc</kbd> to exit');
+      // celebratory burst in the corner
+      if (!REDUCED) {
+        confetti();
+        const r = (statusDots[0] || document.body).getBoundingClientRect();
+        sparkleBurst(r.left + 20, r.top + 20);
+      }
+    } else {
+      showHint('rainbow mode off');
+    }
   }
   statusDots.forEach((d) => {
     d.style.cursor = 'pointer';
@@ -118,13 +129,14 @@
       dotTimer = setTimeout(() => { dotClicks = 0; }, 1500);
       if (dotClicks >= 5) {
         dotClicks = 0;
-        statusEgg();
+        rainbowToggle();
       }
     });
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && document.body.classList.contains('status-rainbow')) {
-      document.body.classList.remove('status-rainbow');
+    if (e.key === 'Escape' && document.body.classList.contains('rainbow-mode')) {
+      document.body.classList.remove('rainbow-mode');
+      showHint('rainbow mode off');
     }
   });
 
@@ -195,6 +207,58 @@
 
   // expose so other handlers can fire it
   window.__playful_confetti = confetti;
+
+  /* ============ MOUSE PARALLAX (subtle layer drift on cursor move) ============ */
+  const TOUCH = matchMedia('(hover: none), (pointer: coarse)').matches;
+  if (!REDUCED && !TOUCH) {
+    const layers = Array.from(document.querySelectorAll('[data-parallax]')).map((el) => ({
+      el, depth: parseFloat(el.getAttribute('data-parallax')) || 14
+    }));
+    if (layers.length) {
+      let mx = 0, my = 0, tx = 0, ty = 0;
+      const cx = () => window.innerWidth / 2;
+      const cy = () => window.innerHeight / 2;
+      window.addEventListener('mousemove', (e) => {
+        mx = (e.clientX - cx()) / cx();
+        my = (e.clientY - cy()) / cy();
+      }, { passive: true });
+      function pTick() {
+        tx += (mx - tx) * 0.08;
+        ty += (my - ty) * 0.08;
+        layers.forEach(({ el, depth }) => {
+          el.style.transform = `translate3d(${tx * depth}px, ${ty * depth}px, 0)`;
+        });
+        requestAnimationFrame(pTick);
+      }
+      requestAnimationFrame(pTick);
+    }
+
+    /* ============ 3D TILT on cards / terminal ============ */
+    document.querySelectorAll('[data-tilt]').forEach((el) => {
+      const max = parseFloat(el.getAttribute('data-tilt')) || 6;
+      let rect = null;
+      let raf = null;
+      function update(e) {
+        if (!rect) rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top)  / rect.height;
+        const rx = (0.5 - y) * max;
+        const ry = (x - 0.5) * max;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          el.style.transform = `perspective(900px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateZ(0)`;
+        });
+      }
+      el.addEventListener('mouseenter', () => { rect = el.getBoundingClientRect(); });
+      el.addEventListener('mousemove',  update);
+      el.addEventListener('mouseleave', () => {
+        cancelAnimationFrame(raf);
+        el.style.transform = 'perspective(900px) rotateX(0) rotateY(0)';
+      });
+      window.addEventListener('resize', () => { rect = null; });
+      window.addEventListener('scroll', () => { rect = null; }, { passive: true });
+    });
+  }
 
   /* ============ HOVER-CONFETTI on the spin-badge (subtle) ============ */
   const badge = document.querySelector('.spin-badge');

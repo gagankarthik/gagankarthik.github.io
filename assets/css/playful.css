@@ -10,6 +10,109 @@
   --accent-violet: #b794f4;
 }
 
+/* ============ HERO MESH (animated colored blobs behind the hero) ============ */
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.hero-mesh .blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.42;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.hero-mesh .blob.is-amber  { background: radial-gradient(circle, var(--accent),         transparent 60%); }
+.hero-mesh .blob.is-coral  { background: radial-gradient(circle, var(--accent-2),       transparent 60%); }
+.hero-mesh .blob.is-violet { background: radial-gradient(circle, var(--accent-violet),  transparent 60%); }
+.hero-mesh .blob.is-blue   { background: radial-gradient(circle, var(--accent-blue),    transparent 60%); }
+.hero-mesh .blob.is-green  { background: radial-gradient(circle, var(--accent-3),       transparent 60%); }
+
+.hero-mesh .blob-1 { width: 420px; height: 420px; top: -120px; left: -120px;
+  animation: drift1 18s ease-in-out infinite; }
+.hero-mesh .blob-2 { width: 380px; height: 380px; bottom: -120px; right: -100px;
+  animation: drift2 22s ease-in-out infinite; }
+.hero-mesh .blob-3 { width: 320px; height: 320px; top: 30%; right: 28%;
+  animation: drift3 26s ease-in-out infinite; opacity: 0.32; }
+.hero-mesh .blob-4 { width: 260px; height: 260px; top: 8%; right: 6%;
+  animation: drift1 30s ease-in-out infinite reverse; opacity: 0.28; }
+
+@keyframes drift1 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(60px, 40px) scale(1.08); }
+}
+@keyframes drift2 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(-50px, -30px) scale(0.95); }
+}
+@keyframes drift3 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(40px, -50px) scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-mesh .blob { animation: none; }
+}
+
+/* a faint dotted-grid overlay layered over the mesh — adds texture */
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+}
+
+/* ============ MOUSE PARALLAX + TILT ============ */
+[data-parallax] { will-change: transform; transition: transform 220ms var(--ease-out); }
+[data-tilt]     { will-change: transform; transform-style: preserve-3d; transition: transform 320ms var(--ease-out); }
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  [data-parallax], [data-tilt] { transform: none !important; }
+}
+
+/* terminal sheen accent */
+.terminal { position: relative; }
+.terminal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 30%, rgba(245,211,92,0.06) 50%, transparent 70%);
+  opacity: 0.7;
+  mix-blend-mode: overlay;
+}
+
+/* ============ HERO LIVE-PILL (small status floating at the top) ============ */
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+.hero-pill .ping {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent-3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
 /* ============ WAVE HAND ============ */
 .wave {
   display: inline-block;
@@ -427,17 +530,114 @@
 .sparkle.is-violet { color: var(--accent-violet); }
 .sparkle.is-green  { color: var(--accent-3); }
 
-/* ============ STATUS DOT EASTER EGG (rainbow on click) ============ */
-body.status-rainbow .status-dot {
-  animation: rainbow 1.6s linear infinite, pulse 2s ease-in-out infinite !important;
+/* ============ RAINBOW MODE (full-site easter egg) ============ */
+/* @property registers the CSS variables so they can animate smoothly across keyframes */
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f5d35c;
 }
-@keyframes rainbow {
+@property --accent-2 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e85d4d;
+}
+@property --accent-3 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #6dd58c;
+}
+
+body.rainbow-mode {
+  animation: rainbowCycle 7s linear infinite;
+  --rainbow-on: 1;
+}
+@keyframes rainbowCycle {
+  0%   { --accent: #f5d35c; --accent-2: #e85d4d; --accent-3: #6dd58c; }
+  16%  { --accent: #ff7eb6; --accent-2: #f5d35c; --accent-3: #4ea7d8; }
+  33%  { --accent: #b794f4; --accent-2: #ff7eb6; --accent-3: #f5d35c; }
+  50%  { --accent: #4ea7d8; --accent-2: #b794f4; --accent-3: #ff7eb6; }
+  66%  { --accent: #6dd58c; --accent-2: #4ea7d8; --accent-3: #b794f4; }
+  83%  { --accent: #f5d35c; --accent-2: #6dd58c; --accent-3: #4ea7d8; }
+  100% { --accent: #f5d35c; --accent-2: #e85d4d; --accent-3: #6dd58c; }
+}
+
+/* extra rainbow effects layered on top */
+body.rainbow-mode {
+  background-image:
+    radial-gradient(circle at 80% -10%, rgba(245,211,92,0.10), transparent 40%),
+    radial-gradient(circle at -10% 60%, rgba(232,93,77,0.08), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(183,148,244,0.08), transparent 40%);
+  animation: rainbowCycle 7s linear infinite, rainbowBgShift 14s ease-in-out infinite;
+}
+@keyframes rainbowBgShift {
+  0%, 100% { background-position: 0% 0%, 0% 0%, 0% 0%; }
+  50%      { background-position: 8% 6%, -6% -4%, 4% -8%; }
+}
+
+/* spin badge speeds up in rainbow mode */
+body.rainbow-mode .spin-badge-svg { animation-duration: 4s; }
+
+/* hero mesh hue-cycle in rainbow mode (additive on top of existing animation) */
+body.rainbow-mode .hero-mesh .blob {
+  animation-name: rainbowHue, drift1;
+  animation-duration: 5s, 18s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  filter: blur(72px) hue-rotate(0deg);
+}
+body.rainbow-mode .hero-mesh .blob.blob-2 { animation-duration: 5s, 22s; }
+body.rainbow-mode .hero-mesh .blob.blob-3 { animation-duration: 5s, 26s; }
+body.rainbow-mode .hero-mesh .blob.blob-4 { animation-duration: 5s, 30s; }
+@keyframes rainbowHue {
+  0%   { filter: blur(72px) hue-rotate(0deg); }
+  100% { filter: blur(72px) hue-rotate(360deg); }
+}
+
+/* status-dot rainbow remains for the dot itself */
+body.rainbow-mode .status-dot {
+  animation: rainbowDot 2s linear infinite, pulse 2s ease-in-out infinite !important;
+}
+@keyframes rainbowDot {
   0%   { background: #f5d35c; }
   20%  { background: #6dd58c; }
   40%  { background: #4ea7d8; }
   60%  { background: #b794f4; }
   80%  { background: #ff7eb6; }
   100% { background: #f5d35c; }
+}
+
+/* a tiny ribbon hint at the top of viewport when rainbow is on */
+body.rainbow-mode::before {
+  content: "★ RAINBOW MODE — press ESC to exit";
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 28px;
+  z-index: 9000;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bg);
+  font-weight: 500;
+  background: linear-gradient(90deg, #f5d35c, #6dd58c, #4ea7d8, #b794f4, #ff7eb6, #e85d4d, #f5d35c);
+  background-size: 300% 100%;
+  animation: rainbowRibbon 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes rainbowRibbon {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
+}
+body.rainbow-mode .topbar { top: 28px; }
+
+@media (prefers-reduced-motion: reduce) {
+  body.rainbow-mode { animation: none; }
+  body.rainbow-mode::before { animation: none; }
+  body.rainbow-mode .hero-mesh .blob { animation: none; filter: blur(72px); }
+  body.rainbow-mode .status-dot { animation: pulse 2s ease-in-out infinite !important; }
 }
 
 /* ============ HIGHLIGHTED-WORD MARKER (in copy) ============ */

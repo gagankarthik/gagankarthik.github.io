@@ -54,6 +54,7 @@ function bootActiveNav() {
     const target = a.getAttribute('data-nav');
     if (target === norm || (norm === 'index.html' && target === 'index.html')) {
       a.classList.add('is-active');
+      a.setAttribute('aria-current', 'page');
     }
   });
 }

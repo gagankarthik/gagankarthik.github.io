@@ -401,6 +401,52 @@ html.pt-incoming .page-transition { transform: translateY(0); transition: none; 
   .reveal, .reveal-char, .reveal-fade { opacity: 1 !important; transform: none !important; }
 }
 
+/* ============ ACCESSIBILITY: SKIP LINK ============ */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 12px;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 12px 18px;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
+  z-index: 99999;
+  font-weight: 500;
+  transition: top 200ms var(--ease);
+}
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* visible focus styles for keyboard users — high contrast */
+:focus-visible {
+  outline: 2.5px solid var(--accent) !important;
+  outline-offset: 3px !important;
+  border-radius: 2px;
+}
+.btn:focus-visible,
+.work-card:focus-visible,
+.project-link:focus-visible,
+.email-link:focus-visible,
+.foot-mega:focus-visible,
+.spin-badge:focus-visible {
+  outline-offset: 4px;
+}
+
+/* high-contrast support */
+@media (prefers-contrast: more) {
+  :root {
+    --ink-dim:   #c5c5cc;
+    --ink-muted: #9e9ea6;
+    --line:      #4a4a52;
+  }
+}
+
 /* ============ TAG (mono pill) ============ */
 .tag {
   font-family: var(--mono);
