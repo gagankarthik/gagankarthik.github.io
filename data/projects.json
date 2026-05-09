@@ -1,0 +1,62 @@
+[
+  {
+    "id": "hr-management",
+    "num": "01",
+    "title": "HR Management Platform",
+    "tagline": "Full-stack HR system: employee records, leave tracking, document management. Built solo.",
+    "longDesc": "An end-to-end HR platform for small and mid-sized teams. Employee directory, leave requests with approval flows, document storage, and role-based access. Built and shipped solo — design through deploy.",
+    "role": "Full-stack · Solo",
+    "year": "2024",
+    "tags": ["NEXT.JS", "TYPESCRIPT", "AWS AMPLIFY"],
+    "url": "https://github.com/gagankarthik/hrmanagement",
+    "gradient": "linear-gradient(135deg, #f5d35c 0%, #e8a14d 60%, #e85d4d 100%)"
+  },
+  {
+    "id": "firstshift",
+    "num": "02",
+    "title": "FirstShift",
+    "tagline": "Shift scheduling app for hourly teams — built on the pain of manual roster management.",
+    "longDesc": "Drag-and-drop weekly scheduler for hourly workers. Shift swaps, time-off, conflict detection, and role-based views for managers vs staff. Designed around the actual workflow of a manager building a roster on a Sunday night.",
+    "role": "Full-stack · Solo",
+    "year": "2024",
+    "tags": ["NEXT.JS", "TYPESCRIPT", "SCHEDULING"],
+    "url": "https://github.com/gagankarthik/firstshift",
+    "gradient": "linear-gradient(135deg, #6dd58c 0%, #3a9c66 50%, #1a4f3d 100%)"
+  },
+  {
+    "id": "clockdeck",
+    "num": "03",
+    "title": "ClockDeck",
+    "tagline": "Time tracking dashboard. Clean dashboard UX, real-time clock-in/out.",
+    "longDesc": "A time-tracking SaaS dashboard with real-time clock-in/out, weekly summaries, and exportable reports. Focus on dashboard UX clarity — at a glance, you know who's on the clock and who isn't.",
+    "role": "Full-stack · Solo",
+    "year": "2025",
+    "tags": ["TYPESCRIPT", "DASHBOARD", "SAAS"],
+    "url": "https://github.com/gagankarthik/clockdeck",
+    "gradient": "linear-gradient(135deg, #e85d4d 0%, #c93f5e 50%, #6b2a4f 100%)"
+  },
+  {
+    "id": "oceanblue",
+    "num": "04",
+    "title": "OceanBlue Corp",
+    "tagline": "Production website for a real company. Marketing site + content systems + deployment.",
+    "longDesc": "Production marketing site for OceanBlue, including content management, SEO, and deployment. The first time my work was live for a real customer base — taught me what 'production' actually means.",
+    "role": "Client work",
+    "year": "2025",
+    "tags": ["PRODUCTION", "CLIENT WORK", "CMS"],
+    "url": "https://github.com/gagankarthik/oceanbluecorp",
+    "gradient": "linear-gradient(135deg, #4ea7d8 0%, #2c5fa0 60%, #1a2f4f 100%)"
+  },
+  {
+    "id": "ob-resume",
+    "num": "05",
+    "title": "OB Resume Builder",
+    "tagline": "Contributed to a team codebase — Python tooling for an active company project.",
+    "longDesc": "A team codebase I contributed to — Python tooling and integrations for an active company resume product. Real collaboration: branches, PRs, code review, working with someone else's conventions.",
+    "role": "Contributor",
+    "year": "2025",
+    "tags": ["PYTHON", "COLLABORATION", "FORK"],
+    "url": "https://github.com/gagankarthik/ob-resume-builder-dev",
+    "gradient": "linear-gradient(135deg, #c8b6e0 0%, #7e5fb0 60%, #2a1f4a 100%)"
+  }
+]

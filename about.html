@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Gagan Karthik</title>
+<meta name="description" content="Master's grad in Computer Science. Building HR & workforce tools end-to-end. Honest about what I'm good at — and what I'm still learning." />
+<meta name="theme-color" content="#0e0e10" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,800&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/reset.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="stylesheet" href="assets/css/pages/about.css">
+
+<script>
+  try {
+    if (sessionStorage.getItem('pt:incoming') === '1') {
+      document.documentElement.classList.add('pt-incoming');
+    }
+  } catch (e) {}
+</script>
+</head>
+<body class="page-about">
+
+<div class="page-transition" aria-hidden="true">
+  <div class="page-transition__label"><em>about</em></div>
+</div>
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+
+<header class="topbar" role="banner">
+  <div class="topbar-left">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span class="topbar-status">
+      <a href="index.html" data-cursor-label="home">GAGAN KARTHIK</a>
+    </span>
+  </div>
+  <div class="topbar-right">
+    <nav class="nav-links" aria-label="primary">
+      <a href="work.html"    data-nav="work.html">Work</a>
+      <a href="about.html"   data-nav="about.html">About</a>
+      <a href="contact.html" data-nav="contact.html">Contact</a>
+    </nav>
+    <span class="topbar-time" data-live-time="label" aria-live="off">--:--:-- LOCAL</span>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" aria-hidden="true">
+  <div class="wrap">
+    <nav aria-label="mobile">
+      <a href="index.html"   data-nav="index.html">Home</a>
+      <a href="work.html"    data-nav="work.html">Work</a>
+      <a href="about.html"   data-nav="about.html">About</a>
+      <a href="contact.html" data-nav="contact.html">Contact</a>
+    </nav>
+    <div class="menu-foot">
+      <span class="status-dot" aria-hidden="true"></span> Open to work · <span data-live-time>--:--:--</span> local
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- ========== HERO QUOTE ========== -->
+  <section class="about-hero">
+    <div class="wrap">
+      <blockquote>
+        <span class="line"><span class="quotemark">&ldquo;</span><span data-split="chars">I'd rather solve real problems</span></span>
+        <span class="line"><span data-split="chars">for one company than chase</span></span>
+        <span class="line"><span data-split="chars">ten ideas that <em>go nowhere.</em></span><span class="quotemark">&rdquo;</span></span>
+      </blockquote>
+      <div class="attribution">
+        <span>Gagan Karthik · February 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STORY ========== -->
+  <section>
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="story-label">01 — The story</div>
+        <div class="story-text reveal-fade">
+          <p>I grew up in Hyderabad and now live in the United States, where I just finished a Master's in Computer Science. The CS degree taught me one thing more than anything else: <strong>I'd rather build than research.</strong> The hours I lost track of were always the ones spent making something real that someone could use.</p>
+          <p>Somewhere along the way I noticed a pattern in my own GitHub. <strong>HR management. Shift scheduling. Time tracking. A resume builder. A corporate site for a real company.</strong> Five projects, all clustered around one space — workforce and HR. That wasn't a plan. It was a niche I'd been quietly developing for two years without naming it.</p>
+          <p>So I named it. <strong>I want to build software for the people who manage people</strong> — small teams, mid-sized startups, the kind of companies that ship every week and feel every bug. I use modern tooling and AI as force multipliers. I read fast, adapt fast, and don't need hand-holding. The next role is somewhere in HR-tech, workforce SaaS, or vertical B2B — and I'm ready to start.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STRENGTHS ========== -->
+  <section class="skills">
+    <div class="wrap">
+      <div class="section-label">02 — What I'm good at</div>
+      <h2 data-split="chars">The things you can <em>actually</em> hire me for.</h2>
+      <ol class="skill-list">
+        <li class="skill">
+          <span class="skill-num">/01</span>
+          <h3 class="skill-name">Shipping a Next.js + TypeScript app to production.</h3>
+          <p class="skill-desc">From `npx create-next-app` to a public URL with auth, a database, payments and a CI pipeline — in days, not months. I've done it five times.</p>
+        </li>
+        <li class="skill">
+          <span class="skill-num">/02</span>
+          <h3 class="skill-name">Designing dashboards that don't drown the user.</h3>
+          <p class="skill-desc">HR, scheduling, and internal-tool UIs where information density matters. I obsess over the at-a-glance read.</p>
+        </li>
+        <li class="skill">
+          <span class="skill-num">/03</span>
+          <h3 class="skill-name">Reading messy code and finding the seam.</h3>
+          <p class="skill-desc">New codebase, weird conventions, half-documented patterns — I diff, trace, and ship a fix that looks like the rest of the file.</p>
+        </li>
+        <li class="skill">
+          <span class="skill-num">/04</span>
+          <h3 class="skill-name">Using AI tooling like a professional.</h3>
+          <p class="skill-desc">Claude, Cursor, and Copilot compress my output 3–10× without compromising review-readiness. I treat prompts like commits.</p>
+        </li>
+        <li class="skill">
+          <span class="skill-num">/05</span>
+          <h3 class="skill-name">Translating non-technical pain into features.</h3>
+          <p class="skill-desc">Talking to a manager about a Sunday-night roster problem and turning that conversation into a screen they actually use.</p>
+        </li>
+        <li class="skill">
+          <span class="skill-num">/06</span>
+          <h3 class="skill-name">Owning a project end-to-end, alone.</h3>
+          <p class="skill-desc">Schema, API, UI, copy, deploy. I'm not waiting for someone else to start. The five projects on my work page are all solo builds.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== WEAKNESS — HONEST ========== -->
+  <section class="skills weakness">
+    <div class="wrap">
+      <div class="section-label">03 — What I'm not good at (yet)</div>
+      <h2 data-split="chars">Things I'm <em>still</em> learning. No fluff.</h2>
+      <ol class="skill-list">
+        <li class="skill weakness">
+          <span class="skill-num">/01</span>
+          <h3 class="skill-name">Performance engineering at scale.</h3>
+          <p class="skill-desc">I can build for 100 users. I haven't optimized for 100,000. Profiling, caching strategies, query plans — I know the words; I haven't lived inside them yet.</p>
+        </li>
+        <li class="skill weakness">
+          <span class="skill-num">/02</span>
+          <h3 class="skill-name">Production incident response.</h3>
+          <p class="skill-desc">My code has been in production. I haven't been on-call at 3 a.m. I'd rather be honest than pretend I have the scars.</p>
+        </li>
+        <li class="skill weakness">
+          <span class="skill-num">/03</span>
+          <h3 class="skill-name">Mentoring junior engineers.</h3>
+          <p class="skill-desc">I learn by reading other people's code. I haven't yet been the one writing code others learn from. That's a job I want.</p>
+        </li>
+        <li class="skill weakness">
+          <span class="skill-num">/04</span>
+          <h3 class="skill-name">Saying no to scope creep.</h3>
+          <p class="skill-desc">I get excited and overbuild. I'm working on cutting 20% out of every spec before I touch the keyboard.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== LOVES (horizontal scroll) ========== -->
+  <section class="loves">
+    <div class="wrap">
+      <div class="section-label">04 — Things I love</div>
+      <h2 data-split="chars">Six things that make me <em>real.</em></h2>
+    </div>
+    <div class="loves-rail" role="list">
+      <div class="love-card" role="listitem">
+        <div class="love-icon">☕</div>
+        <div>
+          <div class="love-name">Black coffee at 6am</div>
+          <div class="love-desc">First two hours · before the world wakes up</div>
+        </div>
+      </div>
+      <div class="love-card" role="listitem">
+        <div class="love-icon">⌨</div>
+        <div>
+          <div class="love-name">Late-night refactors</div>
+          <div class="love-desc">11pm · the bug finally clicks · ship · sleep</div>
+        </div>
+      </div>
+      <div class="love-card" role="listitem">
+        <div class="love-icon">▦</div>
+        <div>
+          <div class="love-name">Vintage UI screenshots</div>
+          <div class="love-desc">Win 95 · Apple HIG · Lotus Notes weirdness</div>
+        </div>
+      </div>
+      <div class="love-card" role="listitem">
+        <div class="love-icon">⌗</div>
+        <div>
+          <div class="love-name">Dense terminal screenshots</div>
+          <div class="love-desc">tmux · neovim · everything in one window</div>
+        </div>
+      </div>
+      <div class="love-card" role="listitem">
+        <div class="love-icon">∞</div>
+        <div>
+          <div class="love-name">Reading commit history</div>
+          <div class="love-desc">git log -p · the author's mind exposed</div>
+        </div>
+      </div>
+      <div class="love-card" role="listitem">
+        <div class="love-icon">⌛</div>
+        <div>
+          <div class="love-name">Timeboxed building</div>
+          <div class="love-desc">90-minute focus blocks · ship or scrap</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTRAIT ========== -->
+  <section class="photo-block">
+    <div>
+      <div class="photo-frame">
+        <img src="assets/img/about-portrait.png" alt="Gagan Karthik portrait" loading="lazy" />
+
+      </div>
+      <div class="photo-cap">Hyderabad → United States · 2026</div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot" role="contentinfo">
+  <div class="wrap">
+    <a href="contact.html" class="foot-mega" data-cursor-label="say hi">
+      Let's build <em>something</em>.
+    </a>
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Selected work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://github.com/gagankarthik" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://linktr.ee/gagankarthik" target="_blank" rel="noopener">Linktree ↗</a></li>
+          <li><a href="mailto:mullapudi.gagankarthik@gmail.com">Email ↗</a></li>
+          <li><a href="tel:+14708985946">+1 (470) 898-5946</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Colophon</h4>
+        <ul>
+          <li>Set in <em>Fraunces</em></li>
+          <li><em>JetBrains Mono</em>, Inter</li>
+          <li>HTML · CSS · Vanilla JS</li>
+          <li>Lenis · GSAP · Splitting</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Gagan Karthik · Hyderabad → United States</span>
+      <span>No templates were harmed making this site.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/splitting/dist/splitting.min.js" defer></script>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/cursor.js" defer></script>
+<script src="assets/js/reveal.js" defer></script>
+<script src="assets/js/time.js" defer></script>
+<script src="assets/js/nav.js" defer></script>
+<script src="assets/js/pages/about.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+/* ========================================================================
+   contact.css — contact.html
+   ======================================================================== */
+
+.contact-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 140px 0 80px;
+  display: grid;
+  align-items: center;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(48px, 6vw, 96px);
+  align-items: center;
+}
+
+.contact-head h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(64px, 11vw, 168px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  margin-bottom: 28px;
+}
+.contact-head h1 em { color: var(--accent); font-style: italic; font-weight: 300; }
+.contact-head .sub {
+  font-size: clamp(17px, 1.6vw, 20px);
+  color: var(--ink-dim);
+  line-height: 1.55;
+  max-width: 50ch;
+  margin-bottom: 56px;
+}
+
+/* big email link */
+.email-block {
+  margin-bottom: 56px;
+  position: relative;
+  display: inline-block;
+}
+.email-link {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 6px;
+  display: inline-block;
+  position: relative;
+  transition: color var(--t-base) var(--ease), letter-spacing var(--t-base) var(--ease);
+  word-break: break-word;
+}
+.email-link:hover { color: var(--ink); border-color: var(--ink); letter-spacing: 0.005em; }
+
+.copy-tip {
+  position: absolute;
+  inset: auto auto calc(100% + 10px) 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 6px 10px;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 200ms var(--ease), transform 200ms var(--ease);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.email-block:hover .copy-tip,
+.email-block.is-copied .copy-tip { opacity: 1; transform: translateY(0); }
+.copy-tip::after {
+  content: "";
+  position: absolute;
+  left: 14px; top: 100%;
+  border: 5px solid transparent;
+  border-top-color: var(--accent);
+}
+
+.contact-phone {
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  margin-bottom: 56px;
+}
+.contact-phone::before {
+  content: "TEL";
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  border: 1px solid var(--accent);
+  padding: 3px 6px;
+  border-radius: 2px;
+}
+.contact-phone a { color: var(--ink); }
+.contact-phone a:hover { color: var(--accent); }
+
+/* social cols */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 32px 0;
+  margin-bottom: 56px;
+}
+.social-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.social-col h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.social-col a {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  transition: color var(--t-base) var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.social-col a::after { content: "↗"; font-size: 14px; color: var(--ink-muted); transition: color var(--t-base) var(--ease), transform var(--t-base) var(--ease); }
+.social-col a:hover { color: var(--accent); }
+.social-col a:hover::after { color: var(--accent); transform: translate(3px, -3px); }
+
+.reply-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* right column — signature + clock */
+.contact-side {
+  display: grid;
+  gap: 32px;
+  align-content: center;
+}
+.signature-frame {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  background: var(--bg-2);
+  display: grid;
+  gap: 16px;
+}
+.signature-frame .sig-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.signature-frame svg {
+  width: 100%;
+  height: auto;
+}
+.signature-frame svg path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: sigDraw 2400ms cubic-bezier(0.65, 0, 0.35, 1) 600ms forwards;
+}
+@keyframes sigDraw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .signature-frame svg path { stroke-dashoffset: 0; animation: none; }
+}
+
+.clock-frame {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  background: var(--bg-2);
+}
+.clock-frame .clock-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 14px;
+}
+.clock-time {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.clock-zone {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-head h1 { font-size: clamp(56px, 13vw, 120px); }
+}
+@media (max-width: 768px) {
+  .social-grid { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+  .social-col a { font-size: 20px; }
+  .contact-head .sub { font-size: 16px; margin-bottom: 40px; }
+  .email-block { margin-bottom: 40px; }
+  .contact-side { gap: 18px; }
+  .signature-frame, .clock-frame { padding: 22px; }
+}
+@media (max-width: 600px) {
+  .email-link { font-size: clamp(22px, 6vw, 32px); word-break: break-all; }
+  .contact-head h1 { font-size: clamp(48px, 14vw, 88px); }
+  .copy-tip { font-size: 10px; padding: 5px 9px; }
+}
+@media (max-width: 480px) {
+  .contact-page { padding: 100px 0 50px; }
+  .email-link { font-size: 22px; padding-bottom: 4px; }
+  .contact-phone { font-size: 13px; gap: 10px; margin-bottom: 40px; }
+  .reply-note { font-size: 11px; }
+  .clock-time { font-size: clamp(36px, 10vw, 52px); }
+}
+@media (max-width: 360px) {
+  .contact-head h1 { font-size: 44px; }
+  .email-link { font-size: 18px; }
+  .signature-frame svg { max-height: 100px; }
+}

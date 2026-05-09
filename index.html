@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gagan Karthik — Full-Stack Engineer building HR & workforce tools</title>
+<meta name="description" content="Full-stack engineer. CS Master's. I ship Next.js + TypeScript apps end-to-end — HR platforms, scheduling systems, internal tools — using AI to move at 3× the speed of a normal solo developer." />
+<meta name="theme-color" content="#0e0e10" />
+<meta property="og:title" content="Gagan Karthik — Full-Stack Engineer" />
+<meta property="og:description" content="HR & workforce tools, end-to-end. Next.js + TypeScript." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,800&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/reset.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="stylesheet" href="assets/css/pages/home.css">
+<link rel="stylesheet" href="assets/css/playful.css">
+
+<script>
+  try {
+    if (sessionStorage.getItem('pt:incoming') === '1') {
+      document.documentElement.classList.add('pt-incoming');
+    }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<div class="page-transition" aria-hidden="true">
+  <div class="page-transition__label"><em>loading…</em></div>
+</div>
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+
+<!-- ========== TOP BAR ========== -->
+<header class="topbar" role="banner">
+  <div class="topbar-left">
+    <span class="status-dot" aria-hidden="true" title="click me 5×"></span>
+    <span class="topbar-status">
+      <span class="topbar-status-text">OPEN TO WORK · STEM OPT</span>
+    </span>
+  </div>
+  <div class="topbar-right">
+    <nav class="nav-links" aria-label="primary">
+      <a href="work.html"    data-nav="work.html">Work</a>
+      <a href="about.html"   data-nav="about.html">About</a>
+      <a href="contact.html" data-nav="contact.html">Contact</a>
+    </nav>
+    <span class="topbar-time" data-live-time="label" aria-live="off">--:--:-- LOCAL</span>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ========== MOBILE MENU ========== -->
+<div class="mobile-menu" aria-hidden="true">
+  <div class="wrap">
+    <nav aria-label="mobile">
+      <a href="index.html"   data-nav="index.html">Home</a>
+      <a href="work.html"    data-nav="work.html">Work</a>
+      <a href="about.html"   data-nav="about.html">About</a>
+      <a href="contact.html" data-nav="contact.html">Contact</a>
+    </nav>
+    <div class="menu-foot">
+      <span class="status-dot" aria-hidden="true"></span> Open to work · <span data-live-time>--:--:--</span> local
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+
+    <!-- decorative doodles (purely cosmetic, behind everything) -->
+    <div class="hero-doodles" aria-hidden="true">
+      <div class="doodle doodle-asterisk doodle-asterisk-1 is-coral float-a">
+        <svg viewBox="0 0 36 36"><path d="M18 4 V32 M4 18 H32 M8 8 L28 28 M28 8 L8 28"/></svg>
+      </div>
+      <div class="doodle doodle-squiggle doodle-squiggle-1 float-b">
+        <svg viewBox="0 0 120 24"><path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 98 12 T 118 12"/></svg>
+      </div>
+      <div class="doodle doodle-star doodle-star-1 is-pink float-c">
+        <svg viewBox="0 0 48 48"><path d="M24 2 L29 19 L46 19 L32 29 L37 46 L24 36 L11 46 L16 29 L2 19 L19 19 Z"/></svg>
+      </div>
+      <div class="doodle doodle-spark doodle-spark-1 is-violet float-a">
+        <svg viewBox="0 0 44 44"><path d="M22 4 L25 18 L40 22 L25 26 L22 40 L19 26 L4 22 L19 18 Z"/></svg>
+      </div>
+      <div class="doodle doodle-circle doodle-circle-1 is-green float-b">
+        <svg viewBox="0 0 90 90"><path d="M 45 4 C 70 4, 86 22, 86 46 C 86 70, 66 86, 44 84 C 22 82, 6 64, 6 42 C 6 22, 22 4, 44 4"/></svg>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-meta"><span class="wave" aria-hidden="true">👋</span> Hey, I'm Gagan · Full-Stack Engineer</div>
+
+          <h1>
+            <span class="line">I build <span class="amber">workforce</span></span>
+            <span class="line">and <span class="amber">HR tools</span></span>
+            <span class="line">
+              <span class="strike">
+                that don't suck
+                <svg class="strike-svg" viewBox="0 0 600 40" preserveAspectRatio="none" aria-hidden="true">
+                  <path pathLength="800" d="M6 24 C 80 14, 160 28, 240 18 S 380 26, 460 16 S 560 24, 596 18" />
+                </svg>
+              </span>
+            </span>
+          </h1>
+
+          <p class="hero-sub">
+            Full-stack engineer. CS Master's. <strong>I ship Next.js + TypeScript apps end-to-end</strong> — HR platforms, scheduling systems, internal tools — using AI to move at <span class="marker">3× the speed</span> of a normal solo dev.
+          </p>
+
+          <div class="cta-row">
+            <a href="work.html" class="btn btn-primary" data-magnetic data-cursor-label="see work" data-sparkle>
+              See my work <span class="arrow">→</span>
+            </a>
+            <a href="contact.html" class="btn btn-ghost" data-magnetic data-cursor-label="say hi">
+              Get in touch
+            </a>
+          </div>
+        </div>
+
+        <!-- Animated terminal -->
+        <div class="terminal" aria-hidden="true">
+          <div class="term-bar">
+            <div class="term-dot"></div>
+            <div class="term-dot"></div>
+            <div class="term-dot"></div>
+            <div class="term-title">~/gagan — profile.json</div>
+          </div>
+          <div class="term-body" id="term"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- spinning circular badge -->
+    <a href="contact.html" class="spin-badge" aria-label="Available for hire — say hi">
+      <svg class="spin-badge-svg" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <path id="textcircle" d="M 100, 100 m -78, 0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
+        </defs>
+        <text>
+          <textPath href="#textcircle">AVAILABLE FOR HIRE  ★  AVAILABLE FOR HIRE  ★  </textPath>
+        </text>
+      </svg>
+      <span class="spin-badge-arrow">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12 H19 M13 6 L19 12 L13 18"/>
+        </svg>
+      </span>
+    </a>
+
+    <!-- scroll prompt -->
+    <div class="scroll-prompt" aria-hidden="true">
+      <span>scroll, friend</span>
+      <span class="arrow"></span>
+    </div>
+  </section>
+
+  <!-- ========== "CURRENTLY" STRIP ========== -->
+  <section class="currently-strip" aria-label="What I'm doing right now">
+    <div class="wrap">
+      <span class="currently-label">Right now</span>
+      <div class="currently-rotator" aria-live="polite">
+        <span class="currently-item"><span class="emoji">☕</span> Coffee #3 — black, no sugar</span>
+        <span class="currently-item"><span class="emoji">🛠</span> Polishing this very portfolio</span>
+        <span class="currently-item"><span class="emoji">🎧</span> Lo-fi beats &amp; a long deploy log</span>
+        <span class="currently-item"><span class="emoji">📚</span> Re-reading <em>Don't Make Me Think</em></span>
+        <span class="currently-item"><span class="emoji">⭐</span> Open to interviews this week</span>
+        <span class="currently-item"><span class="emoji">🌙</span> 11:42 pm — perfect time to ship</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STACK MARQUEE ========== -->
+  <section style="padding: 24px 0;">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item dot">TypeScript</span>
+        <span class="marquee-item dot">Next.js</span>
+        <span class="marquee-item dot">React</span>
+        <span class="marquee-item dot">Tailwind</span>
+        <span class="marquee-item dot">shadcn/ui</span>
+        <span class="marquee-item dot">Supabase</span>
+        <span class="marquee-item dot">PostgreSQL</span>
+        <span class="marquee-item dot">Python</span>
+        <span class="marquee-item dot">AWS Amplify</span>
+        <span class="marquee-item dot">Vercel</span>
+        <span class="marquee-item dot">Stripe</span>
+        <span class="marquee-item dot">Node</span>
+        <!-- duplicate for seamless loop -->
+        <span class="marquee-item dot">TypeScript</span>
+        <span class="marquee-item dot">Next.js</span>
+        <span class="marquee-item dot">React</span>
+        <span class="marquee-item dot">Tailwind</span>
+        <span class="marquee-item dot">shadcn/ui</span>
+        <span class="marquee-item dot">Supabase</span>
+        <span class="marquee-item dot">PostgreSQL</span>
+        <span class="marquee-item dot">Python</span>
+        <span class="marquee-item dot">AWS Amplify</span>
+        <span class="marquee-item dot">Vercel</span>
+        <span class="marquee-item dot">Stripe</span>
+        <span class="marquee-item dot">Node</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 01 — THE PATTERN ========== -->
+  <section class="pattern" id="pattern">
+    <div class="wrap">
+      <div class="section-label">01 — The pattern</div>
+      <h2 data-split="chars">Most engineers are <em>generalists</em>. I'm something more useful: someone who keeps building in <span class="marker is-pink">one space</span>.</h2>
+
+      <div class="pattern-grid">
+        <div class="pattern-text reveal-fade">
+          <p>
+            Look at my GitHub. <strong>HR management. Shift scheduling. Time tracking. Resume building.</strong> A corporate site for a real company. Five separate attempts at workforce tools. That's not random — that's a niche I've been quietly developing for two years without realizing it.
+          </p>
+          <blockquote class="pattern-quote">
+            "I don't want to be the developer who builds anything. I want to be the one who builds the right thing for people who manage people."
+          </blockquote>
+          <p>
+            I'm a Master's grad in Computer Science on STEM OPT. No US work experience yet — but <span class="marker is-green">25 repositories</span> of proof that I ship. I use Claude and modern tooling to compress weeks of work into days. I read fast, adapt fast, and don't need hand-holding.
+          </p>
+          <p>
+            What I want next: <strong>a small or mid-sized HR-tech / workforce / SaaS startup</strong> that needs a hungry full-stack builder. I'd rather solve real problems for one company than chase ten ideas that go nowhere.
+          </p>
+        </div>
+
+        <div class="pattern-stats" data-stagger>
+          <div class="stat" data-stagger-item>
+            <span class="sticker is-coral stat-sticker" style="--rot: -8deg;"><span class="dot"></span> proof</span>
+            <div class="stat-num" data-count="25">0</div>
+            <div class="stat-label">Repositories shipped</div>
+          </div>
+          <div class="stat" data-stagger-item>
+            <span class="sticker is-green stat-sticker is-bottom-left" style="--rot: 7deg;"><span class="dot"></span> the niche</span>
+            <div class="stat-num" data-count="5">0</div>
+            <div class="stat-label">HR + workforce projects</div>
+          </div>
+          <div class="stat" data-stagger-item>
+            <span class="sticker is-pink stat-sticker" style="--rot: 5deg;"><span class="dot"></span> ✦ done</span>
+            <div class="stat-num">M.S.</div>
+            <div class="stat-label">Computer Science · USA</div>
+          </div>
+          <div class="stat" data-stagger-item>
+            <span class="sticker is-violet stat-sticker is-bottom-left" style="--rot: -6deg;"><span class="dot"></span> ⚡ AI-leveraged</span>
+            <div class="stat-num" data-count="3" data-count-suffix="×">0</div>
+            <div class="stat-label">Shipping speed with AI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 — SELECTED WORK ========== -->
+  <section id="work-rail">
+    <div class="wrap">
+      <div class="section-label">02 — Selected work</div>
+      <div class="selected-work-head">
+        <h2 data-split="chars">Five things I built. <em>End-to-end. Solo.</em></h2>
+        <a href="work.html" class="see-all" data-cursor-label="see all">All projects →</a>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="work-rail" role="list">
+        <a class="work-card" role="listitem" href="https://github.com/gagankarthik/hrmanagement" target="_blank" rel="noopener" data-cursor-label="visit ↗">
+          <span class="card-sticker is-amber"><span style="font-size:11px">★</span> flagship</span>
+          <div class="work-card-num">/01</div>
+          <div>
+            <div class="work-card-title">HR Management Platform</div>
+            <p class="work-card-desc">Full-stack HR system: employee records, leave tracking, document management. Built solo.</p>
+          </div>
+          <div class="work-card-foot">
+            <div class="work-card-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">AWS Amplify</span>
+            </div>
+            <div class="work-card-arrow">↗</div>
+          </div>
+        </a>
+
+        <a class="work-card" role="listitem" href="https://github.com/gagankarthik/firstshift" target="_blank" rel="noopener" data-cursor-label="visit ↗">
+          <span class="card-sticker is-fresh">● fresh</span>
+          <div class="work-card-num">/02</div>
+          <div>
+            <div class="work-card-title">FirstShift</div>
+            <p class="work-card-desc">Shift scheduling app for hourly teams — built on the pain of manual roster management.</p>
+          </div>
+          <div class="work-card-foot">
+            <div class="work-card-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Scheduling</span>
+            </div>
+            <div class="work-card-arrow">↗</div>
+          </div>
+        </a>
+
+        <a class="work-card" role="listitem" href="https://github.com/gagankarthik/clockdeck" target="_blank" rel="noopener" data-cursor-label="visit ↗">
+          <span class="card-sticker is-hot">🔥 hot</span>
+          <div class="work-card-num">/03</div>
+          <div>
+            <div class="work-card-title">ClockDeck</div>
+            <p class="work-card-desc">Time tracking dashboard. Clean dashboard UX, real-time clock-in/out.</p>
+          </div>
+          <div class="work-card-foot">
+            <div class="work-card-tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Dashboard</span>
+              <span class="tag">SaaS</span>
+            </div>
+            <div class="work-card-arrow">↗</div>
+          </div>
+        </a>
+
+        <a class="work-card" role="listitem" href="https://github.com/gagankarthik/oceanbluecorp" target="_blank" rel="noopener" data-cursor-label="visit ↗">
+          <span class="card-sticker">live ↗</span>
+          <div class="work-card-num">/04</div>
+          <div>
+            <div class="work-card-title">OceanBlue Corp</div>
+            <p class="work-card-desc">Production website for a real company. Marketing site + content systems + deployment.</p>
+          </div>
+          <div class="work-card-foot">
+            <div class="work-card-tags">
+              <span class="tag">Production</span>
+              <span class="tag">Client work</span>
+              <span class="tag">CMS</span>
+            </div>
+            <div class="work-card-arrow">↗</div>
+          </div>
+        </a>
+
+        <a class="work-card" role="listitem" href="https://github.com/gagankarthik/ob-resume-builder-dev" target="_blank" rel="noopener" data-cursor-label="visit ↗">
+          <span class="card-sticker">team</span>
+          <div class="work-card-num">/05</div>
+          <div>
+            <div class="work-card-title">OB Resume Builder</div>
+            <p class="work-card-desc">Contributed to a team codebase — Python tooling for an active company project.</p>
+          </div>
+          <div class="work-card-foot">
+            <div class="work-card-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Collab</span>
+              <span class="tag">Fork</span>
+            </div>
+            <div class="work-card-arrow">↗</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="wrap"><div class="work-rail-hint">↔ Scroll · or open the full project list</div></div>
+  </section>
+
+  <!-- ========== 03 — TOOLS ========== -->
+  <section class="tools">
+    <div class="wrap">
+      <div class="section-label">03 — Tools I reach for</div>
+      <h2 data-split="chars">I'm not married to a stack. <em>I ship.</em></h2>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item dot">TypeScript</span>
+        <span class="marquee-item dot">Next.js</span>
+        <span class="marquee-item dot">React</span>
+        <span class="marquee-item dot">Tailwind CSS</span>
+        <span class="marquee-item dot">shadcn/ui</span>
+        <span class="marquee-item dot">Supabase</span>
+        <span class="marquee-item dot">PostgreSQL</span>
+        <span class="marquee-item dot">Prisma</span>
+        <span class="marquee-item dot">AWS Amplify</span>
+        <span class="marquee-item dot">Vercel</span>
+        <span class="marquee-item dot">caffeine</span>
+        <span class="marquee-item dot">TypeScript</span>
+        <span class="marquee-item dot">Next.js</span>
+        <span class="marquee-item dot">React</span>
+        <span class="marquee-item dot">Tailwind CSS</span>
+        <span class="marquee-item dot">shadcn/ui</span>
+        <span class="marquee-item dot">Supabase</span>
+        <span class="marquee-item dot">PostgreSQL</span>
+        <span class="marquee-item dot">Prisma</span>
+        <span class="marquee-item dot">AWS Amplify</span>
+        <span class="marquee-item dot">Vercel</span>
+        <span class="marquee-item dot">caffeine</span>
+      </div>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track reverse">
+        <span class="marquee-item dot">Python</span>
+        <span class="marquee-item dot">Node.js</span>
+        <span class="marquee-item dot">Stripe</span>
+        <span class="marquee-item dot">Claude</span>
+        <span class="marquee-item dot">Cursor</span>
+        <span class="marquee-item dot">Git</span>
+        <span class="marquee-item dot">Figma</span>
+        <span class="marquee-item dot">REST</span>
+        <span class="marquee-item dot">GraphQL</span>
+        <span class="marquee-item dot">Postgres RLS</span>
+        <span class="marquee-item dot">curiosity</span>
+        <span class="marquee-item dot">Python</span>
+        <span class="marquee-item dot">Node.js</span>
+        <span class="marquee-item dot">Stripe</span>
+        <span class="marquee-item dot">Claude</span>
+        <span class="marquee-item dot">Cursor</span>
+        <span class="marquee-item dot">Git</span>
+        <span class="marquee-item dot">Figma</span>
+        <span class="marquee-item dot">REST</span>
+        <span class="marquee-item dot">GraphQL</span>
+        <span class="marquee-item dot">Postgres RLS</span>
+        <span class="marquee-item dot">curiosity</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 04 — HOW I WORK ========== -->
+  <section class="principles">
+    <div class="wrap">
+      <div class="section-label">04 — How I work</div>
+      <h2 data-split="chars">Four habits. <em>Boring on paper, lethal in practice.</em></h2>
+
+      <div class="principles-grid" data-stagger>
+        <article class="principle" data-stagger-item>
+          <span class="principle-icon" aria-hidden="true">🚀</span>
+          <span class="principle-num">/01</span>
+          <h3 class="principle-title">Ship fast, fix forward.</h3>
+          <p class="principle-body">Working software beats elegant slides. I'd rather merge today and refactor on Monday than spend two weeks polishing a branch nobody asked for.</p>
+        </article>
+        <article class="principle" data-stagger-item>
+          <span class="principle-icon" aria-hidden="true">📚</span>
+          <span class="principle-num">/02</span>
+          <h3 class="principle-title">Read the codebase first.</h3>
+          <p class="principle-body">Before I open a PR, I read the surrounding files, follow the conventions, find the seams. New code should look like it was always there.</p>
+        </article>
+        <article class="principle" data-stagger-item>
+          <span class="principle-icon" aria-hidden="true">💬</span>
+          <span class="principle-num">/03</span>
+          <h3 class="principle-title">Talk to the user.</h3>
+          <p class="principle-body">Specs lie, users don't. Five minutes with the person doing the job beats an hour of meetings about what the job ought to be.</p>
+        </article>
+        <article class="principle" data-stagger-item>
+          <span class="principle-icon" aria-hidden="true">⚡</span>
+          <span class="principle-num">/04</span>
+          <h3 class="principle-title">Use AI as a tool, not a crutch.</h3>
+          <p class="principle-body">Claude and Cursor compress my output. They don't think for me. Every line ships through my own brain — that's why it works.</p>
+        </article>
+      </div>
+
+      <p class="muted mono" style="margin-top: 56px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7;">
+        psst — try typing <strong style="color:var(--accent)">hire</strong> anywhere on this page.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-foot" role="contentinfo">
+  <div class="wrap">
+    <a href="contact.html" class="foot-mega" data-cursor-label="say hi" data-sparkle>
+      Let's build <em>something</em>.
+    </a>
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Selected work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://github.com/gagankarthik" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://linktr.ee/gagankarthik" target="_blank" rel="noopener">Linktree ↗</a></li>
+          <li><a href="mailto:mullapudi.gagankarthik@gmail.com">Email ↗</a></li>
+          <li><a href="tel:+14708985946">+1 (470) 898-5946</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Colophon</h4>
+        <ul>
+          <li>Set in <em>Fraunces</em></li>
+          <li><em>JetBrains Mono</em>, Inter</li>
+          <li>HTML · CSS · Vanilla JS</li>
+          <li>Lenis · GSAP · Splitting</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Gagan Karthik · Hyderabad → United States</span>
+      <span>No templates were harmed making this site.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== SCRIPTS ========== -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/splitting/dist/splitting.min.js" defer></script>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/cursor.js" defer></script>
+<script src="assets/js/reveal.js" defer></script>
+<script src="assets/js/time.js" defer></script>
+<script src="assets/js/nav.js" defer></script>
+<script src="assets/js/terminal.js" defer></script>
+<script src="assets/js/playful.js" defer></script>
+</body>
+</html>

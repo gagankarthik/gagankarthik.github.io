@@ -1,0 +1,73 @@
+/* ========================================================================
+   responsive.css — mobile-first overrides
+   Breakpoints: 360 / 480 / 768 / 1024 / 1440
+   Goals: no horizontal overflow at 320px, every page fits its viewport,
+   typography scales gracefully, touch targets ≥ 44px.
+   ======================================================================== */
+
+img, video, svg { max-width: 100%; height: auto; }
+
+/* ============ <= 1280 (small laptop) ============ */
+@media (max-width: 1280px) {
+  :root { --max-w: 1180px; }
+}
+
+/* ============ <= 1024 (laptop / large tablet) ============ */
+@media (max-width: 1024px) {
+  :root { --section: clamp(56px, 8vw, 96px); }
+  .topbar-time { font-size: 11px; }
+}
+
+/* ============ <= 768 (tablet) ============ */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .menu-toggle { display: block; }
+  .topbar-status .topbar-status-text { display: none; }
+  .topbar-time { font-size: 11px; }
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .foot-base { flex-direction: column; align-items: flex-start; gap: 8px; }
+  /* tighter button targets on touch */
+  .btn { padding: 12px 20px; font-size: 12px; }
+}
+
+/* ============ <= 600 ============ */
+@media (max-width: 600px) {
+  .foot-mega { font-size: clamp(40px, 13vw, 72px); margin-bottom: 56px; }
+  .topbar { padding: 0 16px; }
+  .topbar-right { gap: 12px; }
+}
+
+/* ============ <= 480 (mobile) ============ */
+@media (max-width: 480px) {
+  :root {
+    --pad-x: 18px;
+    --section: 64px;
+  }
+  .topbar { height: 56px; }
+  .topbar-left { font-size: 11px; }
+  .foot-grid { grid-template-columns: 1fr; gap: 22px; }
+  .foot-mega { font-size: clamp(36px, 11vw, 56px); margin-bottom: 40px; }
+  /* keep marquee from blasting tiny screens */
+  .marquee-item { font-size: 22px; }
+  .marquee-track { gap: 36px; padding: 16px 0; }
+}
+
+/* ============ <= 360 (very small) ============ */
+@media (max-width: 360px) {
+  :root { --pad-x: 14px; }
+  .topbar-status .topbar-status-text { display: none; }
+  .topbar-time { letter-spacing: 0; font-size: 10px; }
+  .topbar { padding: 0 12px; height: 52px; }
+  .marquee-item { font-size: 19px; }
+  .btn { padding: 11px 16px; font-size: 11px; }
+}
+
+/* ============ landscape phones ============ */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero, .about-hero, .contact-page, .work-hero {
+    min-height: auto !important;
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+  .scroll-prompt { display: none; }
+}
