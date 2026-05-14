@@ -9,17 +9,17 @@
   pointer-events: none;
   z-index: 9999;
   border-radius: 50%;
-  mix-blend-mode: difference;
+  mix-blend-mode: multiply;
   will-change: transform;
 }
 .cursor-dot {
   width: 8px; height: 8px;
-  background: #fff;
+  background: var(--ink);
   transform: translate(-50%, -50%);
 }
 .cursor-ring {
   width: 40px; height: 40px;
-  border: 1px solid rgba(255,255,255,0.85);
+  border: 1px solid rgba(24,24,27,0.55);
   transform: translate(-50%, -50%) scale(0.5);
   transition: transform 280ms var(--ease), border-color 200ms var(--ease);
   display: grid;
@@ -30,7 +30,7 @@
   font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--ink);
   opacity: 0;
   white-space: nowrap;
   transition: opacity 180ms var(--ease);
@@ -63,7 +63,7 @@ body { cursor: none; }
   z-index: 50;
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
-  background: rgba(14,14,16,0.78);
+  background: rgba(250,248,243,0.82);
   border-bottom: 1px solid var(--line);
   transition: border-color 280ms var(--ease), background 280ms var(--ease);
   /* force own compositor layer — fixes backdrop-filter mispaint on top edge */
@@ -72,7 +72,7 @@ body { cursor: none; }
 }
 .topbar.scrolled {
   border-bottom-color: var(--line-2);
-  background: rgba(14,14,16,0.92);
+  background: rgba(250,248,243,0.95);
 }
 
 .topbar-left, .topbar-right {
@@ -161,7 +161,7 @@ body.menu-open .menu-toggle span:nth-child(2) { top: 17px; transform: rotate(-45
 /* mobile drawer */
 .mobile-menu {
   position: fixed; inset: 0;
-  background: var(--accent);
+  background: var(--ink);
   color: var(--bg);
   z-index: 55;
   display: flex;
@@ -187,7 +187,7 @@ body.menu-open .mobile-menu { transform: translateY(0); visibility: visible; }
   color: var(--bg);
   display: block;
   padding: 6px 0;
-  border-bottom: 1px solid rgba(14,14,16,0.18);
+  border-bottom: 1px solid rgba(250,248,243,0.18);
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 480ms var(--ease), transform 600ms var(--ease);
@@ -251,8 +251,8 @@ body.menu-open .mobile-menu nav a:nth-child(4) { transition-delay: 440ms; }
   width: 100%;
   overflow: hidden;
   position: relative;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
 }
 .marquee + .marquee { margin-top: 14px; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
@@ -357,7 +357,7 @@ footer.site-foot {
 /* ============ PAGE TRANSITION OVERLAY ============ */
 .page-transition {
   position: fixed; inset: 0;
-  background: var(--accent);
+  background: var(--ink);
   z-index: 9000;
   pointer-events: none;
   transform: translateY(100%);

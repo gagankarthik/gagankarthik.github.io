@@ -1,20 +1,21 @@
 /* ========================================================================
    tokens.css — single source of truth for color, type, spacing, motion
+   Light theme · refined editorial palette
    ======================================================================== */
 
 :root {
-  /* color */
-  --bg:        #0e0e10;
-  --bg-2:      #16161a;
-  --bg-3:      #1c1c20;
-  --ink:       #ededf0;       /* primary text — 16:1 vs bg */
-  --ink-dim:   #9a9aa4;       /* paragraph text — ~6.2:1 (AA pass) */
-  --ink-muted: #80808a;       /* caption / label — ~4.8:1 (AA pass) */
-  --accent:    #f5d35c;       /* amber */
-  --accent-2:  #e85d4d;       /* coral — used for strike */
-  --accent-3:  #6dd58c;       /* green — status */
-  --line:      #26262b;
-  --line-2:    #34343b;
+  /* color — light theme, warm paper */
+  --bg:        #faf8f3;       /* warm paper */
+  --bg-2:      #ffffff;       /* card surface */
+  --bg-3:      #f1eee5;       /* sunken surface */
+  --ink:       #18181b;       /* primary text — ~15:1 vs bg */
+  --ink-dim:   #44444a;       /* paragraph text — ~9:1 (AAA) */
+  --ink-muted: #6b6b73;       /* caption / label — ~5.6:1 (AA pass) */
+  --accent:    #c5912a;       /* ochre / refined amber */
+  --accent-2:  #b73d2a;       /* rust / refined coral */
+  --accent-3:  #1f7a45;       /* forest green / status */
+  --line:      #e2dfd5;       /* paper line */
+  --line-2:    #cac6b8;       /* stronger line */
 
   /* fonts */
   --serif: 'Fraunces', 'Times New Roman', Georgia, serif;

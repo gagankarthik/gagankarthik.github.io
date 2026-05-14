@@ -1,147 +1,194 @@
 /* ========================================================================
-   contact.css — contact.html
+   contact.css — contact.html · light editorial
    ======================================================================== */
 
 .contact-page {
   min-height: 100vh;
   min-height: 100svh;
-  padding: 140px 0 80px;
+  padding: 130px 0 80px;
   display: grid;
-  align-items: center;
+  align-content: start;
+  position: relative;
+  overflow: hidden;
+}
+.contact-page::before {
+  content: "";
+  position: absolute;
+  top: -120px; left: 50%;
+  transform: translateX(-50%);
+  width: 80%; max-width: 900px; height: 480px;
+  background: radial-gradient(ellipse at top, rgba(197,145,42,0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.contact-page .section-label { margin-bottom: 18px; }
+
+.contact-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(72px, 12vw, 180px);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  margin: 0 0 28px;
+  position: relative;
+  z-index: 2;
+}
+.contact-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.contact-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(20px, 2.2vw, 26px);
+  color: var(--ink-dim);
+  line-height: 1.55;
+  max-width: 58ch;
+  margin-bottom: 72px;
+  position: relative;
+  z-index: 2;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: clamp(48px, 6vw, 96px);
-  align-items: center;
-}
-
-.contact-head h1 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(64px, 11vw, 168px);
-  line-height: 0.92;
-  letter-spacing: -0.04em;
-  margin-bottom: 28px;
-}
-.contact-head h1 em { color: var(--accent); font-style: italic; font-weight: 300; }
-.contact-head .sub {
-  font-size: clamp(17px, 1.6vw, 20px);
-  color: var(--ink-dim);
-  line-height: 1.55;
-  max-width: 50ch;
-  margin-bottom: 56px;
-}
-
-/* big email link */
-.email-block {
-  margin-bottom: 56px;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: start;
   position: relative;
-  display: inline-block;
+  z-index: 2;
 }
+
+/* ============ CHANNELS (left) ============ */
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.channel-block { display: flex; flex-direction: column; gap: 6px; position: relative; }
+.channel-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.channel-value {
+  font-family: var(--mono);
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.channel-value:hover { color: var(--accent); }
+
+.channel-block.primary { padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+
 .email-link {
   font-family: var(--serif);
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: clamp(26px, 3.8vw, 44px);
   font-weight: 400;
   font-style: italic;
-  color: var(--accent);
-  border-bottom: 1px solid var(--accent);
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
   padding-bottom: 6px;
   display: inline-block;
   position: relative;
-  transition: color var(--t-base) var(--ease), letter-spacing var(--t-base) var(--ease);
+  transition: color var(--t-base) var(--ease), border-color var(--t-base) var(--ease);
   word-break: break-word;
+  letter-spacing: -0.01em;
 }
-.email-link:hover { color: var(--ink); border-color: var(--ink); letter-spacing: 0.005em; }
+.email-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 .copy-tip {
   position: absolute;
-  inset: auto auto calc(100% + 10px) 0;
+  top: 0; right: 0;
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
+  font-size: 10px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--bg);
   background: var(--accent);
-  padding: 6px 10px;
-  border-radius: 2px;
+  padding: 5px 10px;
+  border-radius: 999px;
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(-4px);
   transition: opacity 200ms var(--ease), transform 200ms var(--ease);
   pointer-events: none;
   white-space: nowrap;
 }
-.email-block:hover .copy-tip,
-.email-block.is-copied .copy-tip { opacity: 1; transform: translateY(0); }
-.copy-tip::after {
-  content: "";
-  position: absolute;
-  left: 14px; top: 100%;
-  border: 5px solid transparent;
-  border-top-color: var(--accent);
+.channel-block.primary:hover .copy-tip,
+.channel-block.primary.is-copied .copy-tip { opacity: 1; transform: translateY(0); }
+
+.channel-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
 }
 
-.contact-phone {
+.channel-resume {
   display: inline-flex;
-  gap: 14px;
   align-items: center;
+  gap: 18px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+.channel-resume .btn {
+  display: inline-flex;
+  align-items: center;
+}
+.channel-resume-meta {
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: 11px;
   letter-spacing: 0.1em;
-  color: var(--ink-dim);
+  color: var(--ink-muted);
   text-transform: uppercase;
-  margin-bottom: 56px;
 }
-.contact-phone::before {
-  content: "TEL";
-  color: var(--accent);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  border: 1px solid var(--accent);
-  padding: 3px 6px;
-  border-radius: 2px;
-}
-.contact-phone a { color: var(--ink); }
-.contact-phone a:hover { color: var(--accent); }
 
-/* social cols */
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 32px 0;
-  margin-bottom: 56px;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
 }
-.social-col {
+.social-link {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
+  padding: 20px 22px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+  position: relative;
 }
-.social-col h4 {
+.social-link:hover { border-color: var(--accent); transform: translateY(-2px); }
+.social-link::after {
+  content: "↗";
+  position: absolute;
+  top: 20px; right: 22px;
+  font-size: 16px;
+  color: var(--ink-muted);
+  transition: color var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+.social-link:hover::after { color: var(--accent); transform: translate(3px, -3px); }
+.social-handle {
   font-family: var(--mono);
   font-size: 10px;
-  color: var(--ink-muted);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-weight: 500;
+  color: var(--ink-muted);
 }
-.social-col a {
+.social-name {
   font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 500;
   color: var(--ink);
   letter-spacing: -0.005em;
-  transition: color var(--t-base) var(--ease);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
 }
-.social-col a::after { content: "↗"; font-size: 14px; color: var(--ink-muted); transition: color var(--t-base) var(--ease), transform var(--t-base) var(--ease); }
-.social-col a:hover { color: var(--accent); }
-.social-col a:hover::after { color: var(--accent); transform: translate(3px, -3px); }
 
 .reply-note {
   display: inline-flex;
@@ -150,110 +197,124 @@
   font-family: var(--mono);
   font-size: 12px;
   color: var(--ink-dim);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  padding-top: 4px;
 }
 
-/* right column — signature + clock */
+.ping-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  background: var(--accent-3);
+  border-radius: 50%;
+  position: relative;
+}
+.ping-dot::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  background: var(--accent-3);
+  animation: pingPulse 2.4s ease-out infinite;
+  opacity: 0.55;
+}
+@keyframes pingPulse {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* ============ META (right) ============ */
 .contact-side {
-  display: grid;
-  gap: 32px;
-  align-content: center;
-}
-.signature-frame {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 28px;
-  background: var(--bg-2);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
+  position: sticky;
+  top: 96px;
 }
-.signature-frame .sig-label {
+.meta-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.meta-label {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-muted);
 }
-.signature-frame svg {
-  width: 100%;
-  height: auto;
+.meta-value {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
-.signature-frame svg path {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 1400;
-  stroke-dashoffset: 1400;
-  animation: sigDraw 2400ms cubic-bezier(0.65, 0, 0.35, 1) 600ms forwards;
+.meta-value em {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 400;
 }
-@keyframes sigDraw { to { stroke-dashoffset: 0; } }
-@media (prefers-reduced-motion: reduce) {
-  .signature-frame svg path { stroke-dashoffset: 0; animation: none; }
+.meta-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.meta-list li {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink-dim);
+  padding-left: 14px;
+  position: relative;
+}
+.meta-list li::before {
+  content: "·";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--accent);
 }
 
-.clock-frame {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 28px;
-  background: var(--bg-2);
-}
-.clock-frame .clock-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  margin-bottom: 14px;
-}
-.clock-time {
+.meta-clock .clock-time {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 300;
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(36px, 4vw, 56px);
   line-height: 1;
   color: var(--accent);
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
-.clock-zone {
+.meta-clock .clock-zone {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: var(--ink-dim);
-  margin-top: 10px;
+  color: var(--ink-muted);
   text-transform: uppercase;
 }
 
-/* responsive */
+/* ============ RESPONSIVE ============ */
 @media (max-width: 1024px) {
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-  .contact-head h1 { font-size: clamp(56px, 13vw, 120px); }
+  .contact-side { position: static; }
+  .contact-title { font-size: clamp(60px, 13vw, 120px); }
 }
 @media (max-width: 768px) {
-  .social-grid { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
-  .social-col a { font-size: 20px; }
-  .contact-head .sub { font-size: 16px; margin-bottom: 40px; }
-  .email-block { margin-bottom: 40px; }
-  .contact-side { gap: 18px; }
-  .signature-frame, .clock-frame { padding: 22px; }
-}
-@media (max-width: 600px) {
-  .email-link { font-size: clamp(22px, 6vw, 32px); word-break: break-all; }
-  .contact-head h1 { font-size: clamp(48px, 14vw, 88px); }
-  .copy-tip { font-size: 10px; padding: 5px 9px; }
+  .contact-page { padding: 100px 0 60px; }
+  .contact-sub { font-size: 17px; margin-bottom: 48px; }
+  .channel-row { grid-template-columns: 1fr; gap: 24px; }
+  .social-grid { grid-template-columns: 1fr; }
+  .channel-resume { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .channel-resume .btn { width: 100%; justify-content: center; }
 }
 @media (max-width: 480px) {
-  .contact-page { padding: 100px 0 50px; }
-  .email-link { font-size: 22px; padding-bottom: 4px; }
-  .contact-phone { font-size: 13px; gap: 10px; margin-bottom: 40px; }
-  .reply-note { font-size: 11px; }
-  .clock-time { font-size: clamp(36px, 10vw, 52px); }
-}
-@media (max-width: 360px) {
-  .contact-head h1 { font-size: 44px; }
-  .email-link { font-size: 18px; }
-  .signature-frame svg { max-height: 100px; }
+  .contact-title { font-size: clamp(48px, 14vw, 80px); }
+  .email-link { font-size: clamp(20px, 6vw, 28px); }
+  .contact-sub { font-size: 16px; }
+  .meta-card { padding: 18px 20px; }
 }
