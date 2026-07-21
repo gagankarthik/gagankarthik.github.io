@@ -24,7 +24,7 @@ if (!canvas) {
 
 function boot() {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, 0.1, 200);
@@ -32,8 +32,8 @@ function boot() {
   camera.lookAt(0, -2, -7);
 
   // -------- point grid on the XZ plane --------
-  const SIZE = 84;                 // points per side
-  const SPACING = 0.7;
+  const SIZE = 68;                 // points per side
+  const SPACING = 0.86;
   const half = (SIZE - 1) * SPACING * 0.5;
   const count = SIZE * SIZE;
 

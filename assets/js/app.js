@@ -34,16 +34,17 @@ function bootTopbar() {
   const bar = document.querySelector('.topbar');
   if (!bar) return;
   const hero = document.querySelector('.hero');
-  const on = () => {
+  let threshold = hero ? hero.offsetHeight - 90 : 0;   // measured once, not per-scroll
+  let ticking = false;
+  const apply = () => {
     bar.classList.toggle('scrolled', window.scrollY > 24);
-    if (hero) {
-      const threshold = hero.offsetHeight - 90;
-      bar.classList.toggle('nav-dark', window.scrollY < threshold);
-    }
+    if (hero) bar.classList.toggle('nav-dark', window.scrollY < threshold);
+    ticking = false;
   };
-  on();
+  const on = () => { if (!ticking) { ticking = true; requestAnimationFrame(apply); } };
+  apply();
   window.addEventListener('scroll', on, { passive: true });
-  window.addEventListener('resize', on, { passive: true });
+  window.addEventListener('resize', () => { if (hero) threshold = hero.offsetHeight - 90; apply(); }, { passive: true });
 }
 
 /* ---------------- active nav ---------------- */
@@ -143,6 +144,15 @@ function bootTilt() {
   });
 }
 
+/* ---------------- pause off-screen CSS animations (perf) ---------------- */
+function bootAnimPause() {
+  if (!('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => e.target.classList.toggle('is-paused', !e.isIntersecting));
+  }, { rootMargin: '140px' });
+  document.querySelectorAll('.flow, .tape').forEach((el) => io.observe(el));
+}
+
 /* ---------------- scroll progress bar ---------------- */
 function bootProgress() {
   const bar = document.querySelector('.scroll-progress');
@@ -216,7 +226,7 @@ function bootLoader() {
 function boot() {
   bootLoader();
   bootLenis(); bootTopbar(); bootNav(); bootMobile();
-  bootHeroTitle(); bootReveals(); bootBars(); bootMagnetic(); bootTilt(); bootParallax(); bootContactForm();
+  bootHeroTitle(); bootReveals(); bootBars(); bootMagnetic(); bootTilt(); bootParallax(); bootAnimPause(); bootContactForm();
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
 else boot();
